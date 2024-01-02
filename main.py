@@ -11,7 +11,6 @@ import numpy as np
 import cv2
 from GestureScore.utils import *
 from GestureScore.body_part_angle import *
-import mediapipe as mp
 from GestureScore.types_of_exercise import TypeOfExercise
 from GestureTrack.sample_pose import *
 from GestureTrack.sample_pose2d import *

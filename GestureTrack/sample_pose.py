@@ -7,7 +7,7 @@ import cv2 as cv
 import numpy as np
 import mediapipe as mp
 
-# from utils import CvFpsCalc
+from utils import CvFpsCalc
 
 
 def get_args():
@@ -17,7 +17,7 @@ def get_args():
     parser.add_argument("--width", help='cap width', type=int, default=960)
     parser.add_argument("--height", help='cap height', type=int, default=540)
 
-    # parser.add_argument('--upper_body_only', action='store_true')  # 0.8.3 or less
+    parser.add_argument('--upper_body_only', action='store_true')  # 0.8.3 or less
     parser.add_argument("--model_complexity",
                         help='model_complexity(0,1(default),2)',
                         type=int,
@@ -53,7 +53,7 @@ def main():
     cap_width = args.width
     cap_height = args.height
 
-    # upper_body_only = args.upper_body_only
+    upper_body_only = args.upper_body_only
     model_complexity = args.model_complexity
     min_detection_confidence = args.min_detection_confidence
     min_tracking_confidence = args.min_tracking_confidence
@@ -122,8 +122,8 @@ def main():
             fps_color = (255, 255, 255)
         else:
             fps_color = (0, 255, 0)
-        #cv.putText(debug_image, "FPS:" + str(display_fps), (10, 30),
-                   #cv.FONT_HERSHEY_SIMPLEX, 1.0, fps_color, 2, cv.LINE_AA)
+        # cv.putText(debug_image, "FPS:" + str(display_fps), (10, 30),
+        #            cv.FONT_HERSHEY_SIMPLEX, 1.0, fps_color, 2, cv.LINE_AA)
 
         key = cv.waitKey(1)
         if key == 27:  # ESC
