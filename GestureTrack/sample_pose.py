@@ -7,9 +7,10 @@ import cv2 as cv
 import numpy as np
 import mediapipe as mp
 
-from utils import CvFpsCalc
+from utils import CvFpsCalc # 频率计算模块
 
 
+# 命令行参数解析函数
 def get_args():
     parser = argparse.ArgumentParser()
 
@@ -43,7 +44,7 @@ def get_args():
 
     return args
 
-
+# 主函数
 def main():
     args = get_args()
 
@@ -78,7 +79,7 @@ def main():
 
     if plot_world_landmark:
         import matplotlib.pyplot as plt
-        
+
         fig = plt.figure()
         ax = fig.add_subplot(111, projection="3d")
         fig.subplots_adjust(left=0.0, right=1, bottom=0, top=1)
@@ -130,7 +131,7 @@ def main():
             break
 
         # 画面反映 #############################################################
-        # cv.imshow('MediaPipe Pose Demo', debug_image)
+        cv.imshow('MediaPipe Pose Demo', debug_image)
 
     cap.release()
     cv.destroyAllWindows()
@@ -464,7 +465,7 @@ def plot_world_landmarks(
         waist_x.append(point[0])
         waist_y.append(point[2])
         waist_z.append(point[1] * (-1))
-            
+
     ax.cla()
     ax.set_xlim3d(-1, 1)
     ax.set_ylim3d(-1, 1)
@@ -477,7 +478,7 @@ def plot_world_landmarks(
     ax.plot(left_body_side_x, left_body_side_y, left_body_side_z)
     ax.plot(shoulder_x, shoulder_y, shoulder_z)
     ax.plot(waist_x, waist_y, waist_z)
-    
+
     plt.pause(.001)
 
     return
